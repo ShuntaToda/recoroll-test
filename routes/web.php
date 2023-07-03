@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return ['Laravel' => app()->version()];
 // });
 
-Route::any('{all}', fn () => view('app'))
-    ->where(['all' => '^(?!api/*).*']);
+// Route::any('{all}', fn () => view('app'))
+//     ->where(['all' => '^(?!api/*).*']);
+
+Route::get("/", function () {
+    return view("app");
+});
+
 require __DIR__ . '/auth.php';

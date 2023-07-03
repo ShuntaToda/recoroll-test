@@ -8,6 +8,7 @@ export const LoginPage = () => {
     const [password, setPassword] = useState("");
 
     const onSubmit = (e) => {
+        // e.preventDefault();
         e.preventDefault();
         console.log(email, password);
         login.mutate({

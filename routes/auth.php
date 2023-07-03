@@ -36,17 +36,16 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 //   ->middleware('auth')
 //   ->name('logout');
 
+Route::get('/api/login', function () {
+  return response()->json("aa");
+});
+
+Route::get('/api-login', [AuthenticatedSessionController::class, 'store'])
+  ->middleware('guest')
+  ->name('login');
+
+Route::post('/api-logout', [AuthenticatedSessionController::class, 'destroy'])
+  ->middleware('auth')
+  ->name('logout');
 // Route::prefix('api')->name('api.')->group(function () {
-//   Route::post('login', function () {
-//     return response()->json("aaa");
-//   });
-
-
-//   // [AuthenticatedSessionController::class, 'store'])
-//   //   ->middleware('guest')
-//   //   ->name('login');
-
-//   Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-//     ->middleware('auth')
-//     ->name('logout');
 // });

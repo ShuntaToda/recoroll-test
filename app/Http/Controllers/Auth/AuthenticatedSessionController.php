@@ -15,12 +15,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): Response
     {
-
+        // dd("aa");
+        return response()->json($request);
         $request->authenticate();
 
         $request->session()->regenerate();
 
         return response()->noContent();
+        // return response()->json($request);
     }
 
     /**
