@@ -5,15 +5,12 @@ import { useAuthUser } from "@/hooks/useAuth";
 
 const guardLoader = async () => {
     const user = await useAuthUser();
-    return user[0] ? true : redirect("/login");
+    return user ? true : redirect("/login");
 };
 
 const guestLoader = async () => {
     const user = await useAuthUser();
-
-    console.log(user);
-    return user[0] ? redirect("/") : true;
-    return true;
+    return user ? redirect("/") : true;
 };
 
 export const router = createBrowserRouter([
